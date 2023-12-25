@@ -8,12 +8,13 @@
                 <li class="nav__list-item">
                     <Link href="/" class="nav__link">Find job</Link>
                 </li>
-                <li class="nav__list-item">
+                <li class="nav__list-item" v-if="!user">
                     <Link href="/login" class="nav__link">Sign in</Link>
                 </li>
-                <li class="nav__list-item">
+                <li class="nav__list-item" v-if="!user">
                     <Link href="/register" class="nav__link">Sign up</Link>
                 </li>
+                <UserMenu v-if="user" />
             </ul>
         </nav>
     </header>
@@ -21,6 +22,12 @@
 
 <script setup>
 import { Link } from "@inertiajs/vue3";
+import { usePage } from "@inertiajs/vue3";
+import UserMenu from "./UserMenu.vue";
+
+const page = usePage();
+
+const user = page.props?.auth?.user;
 </script>
 
 <style lang="scss" scoped>

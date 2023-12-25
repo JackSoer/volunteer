@@ -3,7 +3,7 @@
         <Head title="Home" />
         <main class="home">
             <h1 class="home__title">Welcome to Volunteer</h1>
-            <StatsBlock />
+            <StatsBlock :userCount="userCount" />
             <div class="container">
                 <PrimarySection title="Volunteer opportunities">
                     <p class="home__text">
@@ -34,6 +34,8 @@ import { Link, Head } from "@inertiajs/vue3";
 import PrimaryButton from "../components/UI/PrimaryButton.vue";
 import PrimarySection from "../components/UI/PrimarySection.vue";
 import StatsBlock from "../components/StatsBlock.vue";
+
+const { userCount } = defineProps(["userCount"]);
 </script>
 
 <style lang="scss" scoped>

@@ -5,8 +5,8 @@
                 src: '/images/unv_voluteeers.png',
                 alt: 'Volunteers count',
             }"
-            :count="10"
-            title="Volunteers"
+            :count="userCount"
+            title="Users"
         />
         <StatsBlockItem
             :imgProps="{
@@ -21,6 +21,8 @@
 
 <script setup>
 import StatsBlockItem from "./StatsBlockItem.vue";
+
+const { userCount } = defineProps(["userCount"]);
 </script>
 
 <style lang="scss" scoped>

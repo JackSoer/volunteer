@@ -34,7 +34,7 @@
     </div>
 </template>
 <script setup>
-import { computed, reactive, ref, watch } from "vue";
+import { reactive, ref } from "vue";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
@@ -101,11 +101,8 @@ const changeFile = (e) => {
     changing.value = true;
     emit("update:modelValue", e.target.files[0]);
     getValidationErrors(e.target.files[0]);
+    emit("errors", validationErrors);
 };
-
-watch(validationErrors, (newValue) => {
-    emit("errors", newValue);
-});
 </script>
 <style lang="scss" scoped>
 @import "@/../../../scss/var";
